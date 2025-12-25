@@ -1,0 +1,19 @@
+connec sys/1978 as sysdba;
+
+alter session set "_ORACLE_SCRIPT"=true;
+
+create tablespace PROJETOS
+datafile 'C:\Oracle\product\21c\oradata\XE\PROJETOS.dbf' 
+size 100m 
+autoextend on next 50m maxsize UNLIMITED   
+online
+permanent
+extent management local autoallocate
+segment space management auto;
+
+create user PROJ identified by "1978";
+grant connect to PROJ;
+grant resource to PROJ;
+grant unlimited tablespace to PROJ;
+
+
