@@ -17,3 +17,8 @@ grant resource to PROJ;
 grant unlimited tablespace to PROJ;
 
 
+--Compressão da Tabela para Receber Mais Dados--
+ALTER TABLE PROJ.PERMISSAO MOVE COMPRESS BASIC;
+
+--Verificação do Uso da Base de Dados em GB--
+SELECT SUM(bytes) / 1024 / 1024 / 1024 AS tamanho_GB FROM dba_segments;
