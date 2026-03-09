@@ -22,3 +22,6 @@ ALTER TABLE PROJ.PERMISSAO MOVE COMPRESS BASIC;
 
 --Verificação do Uso da Base de Dados em GB--
 SELECT SUM(bytes) / 1024 / 1024 / 1024 AS tamanho_GB FROM dba_segments;
+
+--Caso dê Problema de Índice / PK Rodar o Comando Abaixo--
+ALTER INDEX PROJ.AUDITORIA_PK REBUILD;
