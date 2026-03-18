@@ -1,3 +1,4 @@
+ORACLE
 CREATE TABLE PROJ.LOGIN
 ( ID_LOGIN NUMBER DEFAULT PROJ.SEQ_LOGIN.NEXTVAL,
   NOME_COMPLETO VARCHAR2(150) NOT NULL,
@@ -12,3 +13,14 @@ COMMENT ON COLUMN PROJ.LOGIN.NOME_COMPLETO  IS 'Nome do completo do usuário';
 COMMENT ON COLUMN PROJ.LOGIN.LOGIN_USUARIO  IS 'Login do usuário';
 COMMENT ON COLUMN PROJ.LOGIN.SENHA_USUARIO  IS 'Senha do usuário';
 COMMENT ON COLUMN PROJ.LOGIN.DATA_CRIACAO  IS 'Data de criação do Login';
+
+==============================================================================================
+
+MYSQL
+CREATE TABLE PROJ.LOGIN
+( ID_LOGIN INT NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'Identificador único do login',
+  NOME_COMPLETO VARCHAR(100) NOT NULL COMMENT 'Nome do completo do usuário',
+  LOGIN_USUARIO VARCHAR(15) NOT NULL COMMENT 'Login do usuário',
+  SENHA_USUARIO VARCHAR(50) NOT NULL COMMENT 'Senha do usuário',
+  DATA_CRIACAO DATE COMMENT 'Data de criação do Login'
+);

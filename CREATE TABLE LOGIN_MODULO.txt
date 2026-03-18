@@ -10,3 +10,12 @@ COMMENT ON COLUMN PROJ.LOGIN_MODULO.ID_LOGIN_MODULO IS 'Identificador único do 
 COMMENT ON COLUMN PROJ.LOGIN_MODULO.ID_LOGIN  IS 'Chave estrangeira da tabela Login';
 COMMENT ON COLUMN PROJ.LOGIN_MODULO.NUMERO_MODULO  IS 'Número do módulo que o usuário vai ter acesso. 1-TÁXI; 2-MOTO TÁXI; 3-EMBARCAÇÃO';
 COMMENT ON COLUMN PROJ.LOGIN_MODULO.DATA_CRIACAO  IS 'Data de criação do login-modulo';
+
+===========================================================================================
+
+CREATE TABLE PROJ.LOGIN_MODULO
+( ID_LOGIN_MODULO INT AUTO_INCREMENT PRIMARY KEY COMMENT 'Identificador único do login',
+  ID_LOGIN INT NOT NULL COMMENT 'Chave estrangeira da tabela Login',
+  NUMERO_MODULO INT NOT NULL COMMENT 'Número do módulo que o usuário vai ter acesso. 1-TÁXI; 2-MOTO TÁXI; 3-EMBARCAÇÃO',
+  DATA_CRIACAO DATE COMMENT 'Data de criação do login-modulo'
+);

@@ -2,7 +2,6 @@ CREATE TABLE PROJ.VEICULO
 ( ID_VEICULO NUMBER DEFAULT PROJ.SEQ_VEICULO.NEXTVAL,
   ID_PERMISSIONARIO NUMBER NOT NULL,	
   ID_PONTOS_TAXI NUMBER NOT NULL,
-  NUMERO_PERMISSAO VARCHAR2(20) NOT NULL,  
   PLACA VARCHAR2(7) NOT NULL,
   RENAVAM VARCHAR2(11) NOT NULL,
   CHASSI VARCHAR2(17) NOT NULL,
@@ -29,6 +28,7 @@ CREATE TABLE PROJ.VEICULO
   ANO_CRLV VARCHAR2(4),
   CERTIFICADO_AFERICAO VARCHAR2(15),
   TIPO_VEICULO VARCHAR2(2) NOT NULL,
+  NUMERO_CAV_EMITIDO VARCHAR2(15),
   OBSERVACAO VARCHAR2(200),
   DATA_CRIACAO DATE,
   STATUS VARCHAR2(10),
@@ -64,3 +64,41 @@ COMMENT ON COLUMN PROJ.VEICULO.OBSERVACAO  IS 'Observações gerais sobre o veí
 COMMENT ON COLUMN PROJ.VEICULO.DATA_CRIACAO  IS 'Data de criação';
 COMMENT ON COLUMN PROJ.VEICULO.CAPACIDADE  IS 'Total de pessoas no Veículo';
 COMMENT ON COLUMN PROJ.VEICULO.QUILOMETRAGEM  IS 'Quilometragem atual do Veículo';
+
+===========================================================================================================================
+
+CREATE TABLE PROJ.VEICULO
+( ID_VEICULO INT AUTO_INCREMENT PRIMARY KEY COMMENT 'Identificador único do veículo',
+  ID_PERMISSIONARIO INT NOT NULL COMMENT  'Identificador chave estrangeira do permissionário do veículo',	
+  ID_PONTOS_TAXI INT NOT NULL COMMENT 'Identificador chave estrangeira do ponto de táxi do veículo',
+  PLACA VARCHAR(7) NOT NULL COMMENT 'Placa do veículo',
+  RENAVAM VARCHAR(11) NOT NULL COMMENT 'Renavam do veículo',
+  CHASSI VARCHAR(17) NOT NULL COMMENT 'Chassi do veículo',
+  ANO_FABRICACAO VARCHAR(4) NOT NULL COMMENT 'Ano Fabricação do veículo',
+  MARCA VARCHAR(50) NOT NULL COMMENT 'Marca do veículo',
+  MODELO VARCHAR(50) NOT NULL COMMENT 'Modelo do veículo',
+  ANO_MODELO VARCHAR(4) NOT NULL COMMENT 'Modelo do veículo',
+  COR VARCHAR(2) NOT NULL COMMENT 'Cor do veículo',
+  COMBUSTIVEL VARCHAR(2) NOT NULL COMMENT 'Combustível do veículo',
+  CAPACIDADE VARCHAR(2) COMMENT 'Capacidade do veículo',
+  QUILOMETRAGEM VARCHAR(6) COMMENT 'Quilometragem do veículo',
+  CILINDRADA VARCHAR(6) COMMENT 'Capacidade do veículo',
+  CRLV BLOB NOT NULL COMMENT 'Documento Certificado de Registro e Licenciamento de Veículo',
+  NUMERO_TAXIMETRO VARCHAR(20) NOT NULL COMMENT 'Número do Taxímetro do veículo',
+  ANO_RENOVACAO VARCHAR(4) NOT NULL COMMENT 'Ano de Renovação da Permissão',
+  DATA_VISTORIA DATE COMMENT 'Data de vistoria do veículo',
+  DATA_RETORNO DATE COMMENT 'Data de retorno para a vistoria',
+  STATUS_VISTORIA VARCHAR(10) COMMENT 'Status da Vistoria do Veículo',
+  TIPO_VISTORIA VARCHAR(30) COMMENT '1-Anual(CAV); 2-Extraordinária; 3-Inicial (Implantação); 4-Pós Acidente',
+  RESSALVAS VARCHAR(100) COMMENT 'Ressalvas para o Status da Vistoria quando Reprovada',
+  MATRICULA_VISTORIADOR VARCHAR(15) COMMENT 'Matricula do Servidor que fez a Vistoria do Veículo',
+  SITUACAO_VEICULO VARCHAR(50) COMMENT 'Indica situação de conservação do veículo',
+  NUMERO_CRLV VARCHAR(20) COMMENT 'Número do Documento CRLV',
+  ANO_CRLV VARCHAR(4) COMMENT 'Ano de Emissão do CRLV',
+  CERTIFICADO_AFERICAO VARCHAR(15) COMMENT 'Certificado de Aferição do Veículo',
+  TIPO_VEICULO VARCHAR(2) NOT NULL COMMENT 'Indica o tipo do Veículo',
+  NUMERO_CAV_EMITIDO VARCHAR(15) COMMENT 'Número do Certificado Anual de Vistoria do Veículo',
+  OBSERVACAO VARCHAR(200) COMMENT 'Observações gerais sobre o veículo',
+  DATA_CRIACAO DATE COMMENT 'Data de criação',
+  STATUS VARCHAR(10) COMMENT 'Status do registro do Veículo: 1-Ativo; 2-Inativo'
+);
